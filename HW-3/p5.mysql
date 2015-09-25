@@ -1,3 +1,16 @@
+/*
+ * In The Name Of God
+ * ========================================
+ * [] File Name : p5.mysql
+ *
+ * [] Creation Date : 26-09-2015
+ *
+ * [] Created By : Parham Alvani (parham.alvani@gmail.com)
+ * =======================================
+*/
+/*
+ * Copyright (c) 2015 Parham Alvani.
+*/
 create database nothing;
 
 use nothing;
