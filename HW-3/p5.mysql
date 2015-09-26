@@ -20,28 +20,28 @@ delimiter //
 create procedure outer_join()
 begin
 	declare done int default false;
-    declare a, b, c, d int;
+    	declare a, b, c, d int;
 	
 	
 
-    declare cur cursor for select A, B, C, D from
+    	declare cur cursor for select A, B, C, D from
 		(select * from t1 left join t2 using (A, B, C, D)) union
 		(select * from t1 right join t2 using (A, B, C, D));
 	
-    declare continue handler for not found set done = true;
+    	declare continue handler for not found set done = true;
 
-    open cur;
+    	open cur;
 
-    read_loop: loop
+    	read_loop: loop
 		fetch cur into a, b, c, d;
-        select a, b, c, d;
-        if done = true then
+        	select a, b, c, d;
+        	if done = true then
 			leave read_loop;
 		end if;
 		insert into t1 values (a, b, c, d);
-    end loop;
+    	end loop;
 
-    close cur;
+    	close cur;
 end//
 delimiter ;
 

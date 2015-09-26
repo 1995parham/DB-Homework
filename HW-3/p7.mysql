@@ -42,27 +42,27 @@ begin
 	start transaction;
 		insert into Ticket values(
 			Ticket_num,
-            Passenger_num,
-            First_name,
-            Last_name,
-            Flight_num,
-            Flight_date
-        );
-    commit;
+        		Passenger_num,
+            		First_name,
+            		Last_name,
+            		Flight_num,
+            		Flight_date
+        	);
+	commit;
 end//
 delimiter ;
 
 delimiter //
 create procedure free(in Ticket_num varchar(50))
 begin
-    declare exit handler for SQLException
+	declare exit handler for SQLException
 	begin
 		rollback;
 		select "An error was occured";
 	end;
 	start transaction;
 		delete from Ticket where Ticket.Ticket_num = Ticket_num;
-    commit;
+	commit;
 end//
 delimiter ;
 
