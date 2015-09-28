@@ -1,3 +1,16 @@
+/*
+ * In The Name Of God
+ * ========================================
+ * [] File Name : p1.mysql
+ *
+ * [] Creation Date : 04-01-2016
+ *
+ * [] Created By : Parham Alvani (parham.alvani@gmail.com)
+ * =======================================
+*/
+/*
+ * Copyright (c) 2016 Parham Alvani.
+*/
 /* Remove comment in order to create employes table */
 /*
 create table employes
