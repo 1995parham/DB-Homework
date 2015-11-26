@@ -12,7 +12,7 @@ while (results.hasNext()) {
 	var sum = 0;
 	result.ratings.every(function(rate, index, ratings) {
 		sum += rate;
-	})
+	});
 	result.scores = (sum / result.ratings.length);
 	delete result.ratings;
 	printjson(result);	
