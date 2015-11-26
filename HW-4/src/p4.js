@@ -3,8 +3,8 @@ var results = db.links.find({
 })
 
 function negative_comment(comment, index, comments){
-		if (min != null && min.upVotes - min.downVotes > comment.upVotes - comment.downVotes) {
-			min = comment;
+		if (comment.upVotes == 0 || comment.downVotes >= 3) {
+			printjson(comment);
 		} else if (min == null) {
 			min = comment;
 		} else if (max != null && max.upVotes - max.downVotes < comment.upVotes - comment.downVotes) {
