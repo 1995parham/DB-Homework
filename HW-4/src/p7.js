@@ -2,9 +2,7 @@ var results = db.links.find({
 	'comments': {$exists: true}
 })
 
-var min = null
-var max = null
-function best_worst_comment(comment, index, comments){
+function negative_comment(comment, index, comments){
 		if (min != null && min.upVotes - min.downVotes > comment.upVotes - comment.downVotes) {
 			min = comment;
 		} else if (min == null) {
@@ -23,7 +21,5 @@ function best_worst_comment(comment, index, comments){
 while (results.hasNext()) {
 	result = results.next();
 	comments = result.comments;
-	comments.every(best_worst_comment);
+	comments.every(negative_comment);
 }
-printjson(min);
-printjson(max);
