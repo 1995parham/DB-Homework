@@ -11,38 +11,33 @@
 /*
  * Copyright (c) 2016 Parham Alvani.
 */
-/* Remove comment in order to create employes table */
-/*
-create table employes
+create table if not exists employes
 (
 	id int,
-    name varchar(255),
-    family varchar(255),
-    salary int,
-    primary key(id)
+    	name varchar(255),
+    	family varchar(255),
+    	salary int,
+    	primary key(id)
 );
-*/
 
-/* Remove comment in order to delete evens procedure before creating it */
-/*
-drop procedure evens;
-*/
 
 DELIMITER $$
+
+drop procedure if exists evens;
 
 create procedure evens (in n1 int, in n2 int, out count int)
 begin
 	declare i int;
-    set i = n1;
-    set count = 0;
+    	set i = n1;
+    	set count = 0;
 
-    while i <= n2 do
-		if i % 2 = 0 then 
-			set count = count + 1; 
+    	while i <= n2 do
+		if i % 2 = 0 then
+			set count = count + 1;
 		end if;
 		set i = i + 1;
 	end while;
-end $$
+end$$
 
 DELIMITER ;
 
@@ -62,7 +57,7 @@ DELIMITER $$
 create procedure employee_insert (in id int, in name varchar(255), in family varchar(255), in salary int)
 begin
 	insert into employes values (id, name, family, salary);
-end $$
+end$$
 
 create procedure employee_delete (in id int)
 begin
@@ -81,8 +76,8 @@ end$$
 
 DELIMITER ;
 
-call employee_insert (3, 'Parham', 'Alvani', 100);
-call employee_insert (1, 'HamidReza', 'Alvani', 100);
-call employee_select ('P');
+call employee_insert(3, 'Parham', 'Alvani', 100);
+call employee_insert(1, 'HamidReza', 'Alvani', 100);
+call employee_select('P');
 call employee_delete(1);
 call employee_delete(3);
