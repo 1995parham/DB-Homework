@@ -6,3 +6,8 @@ about database systems has become an essential part of an education in computer
 science. In this text, we present the fundamental concepts of database management.
 These concepts include aspects of database design, database languages, and
 database-system implementation.
+## MySQL Script
+for running mysql script use following command:
+```sh
+mysql -u root -p < scirpt.sql
+```
