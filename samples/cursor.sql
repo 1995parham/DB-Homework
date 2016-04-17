@@ -12,6 +12,22 @@
  * Copyright (c) 2016 Parham Alvani.
 */
 
+use test;
+
+CREATE TABLE IF NOT EXISTS t1 (
+	A int
+);
+
+CREATE TABLE IF NOT EXISTS t2 (
+	A int
+);
+
+INSERT INTO t1 VALUES (10);
+INSERT INTO t1 VALUES (1);
+
+INSERT INTO t2 VALUES (5);
+INSERT INTO t2 VALUES (3);
+
 DELIMITER //
 
 CREATE PROCEDURE curdemo()
