@@ -10,6 +10,15 @@ database-system implementation.
 
 ## Mysql Security
 
+1. Install MySQL or MariaDB on your Linux Operating system
+2. Start the service
+3. Add two users to DBMS namely netsec1 and netsec2
+4. Create a database named DBTest
+5. Create two test tables named Table1 and Table2 each have two columns named username and password.
+6. Insert some test records in these two tables.
+7. Using the GRANT statement, secure the DBMS in a way that netsec1 has access to Table1 and netsec has access to Table2 but not vice versa.
+
+
 ```sh
 mysql -u root -p
 ```
@@ -30,6 +39,8 @@ INSERT INTO Table2 () VALUES ("u2", "p2");
 GRANT ALL ON DBTest.Table1 TO 'netsec1';
 GRANT ALL ON DBTest.Table2 TO 'netsec2';
 ```
+
+8. Test your configuration using a number of INSERT and SELECT statements.
 
 ```sh
 mysql -u netsec1 -p
@@ -54,6 +65,8 @@ INSERT INTO Table1 () VALUES ("1u1", "1p1"); /* this shouldn't work */
 /* ERROR 1142 (42000): INSERT command denied to user 'netsec2'@'localhost' for table 'Table1' */
 INSERT INTO Table2 () VALUES ("1u2", "1p2"); /* this should work */
 ```
+
+9. Revoke the INSERT permission from the users and recheck your configuration.
 
 ```sh
 mysql -u root -p
